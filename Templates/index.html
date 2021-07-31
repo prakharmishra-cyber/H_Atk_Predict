@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Heart Attack Prediction</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+	.btn{
+		background: linear-gradient(to bottom right, red, blue);
+		color: white;
+	}
+	.top{
+		margin-top: 100px;
+	}
+	.fform{
+		/*background-color: #340078;*/
+		background-color: #eee;
+		padding: 50px;
+		margin-top: 70px;
+
+	}
+	.heading{
+		background-color: #28015c;
+		padding: 10px;
+		color: white;
+		text-align: center;
+	}
+</style>
+</head>
+<body style="background: linear-gradient(to bottom right, red, blue); background-repeat: no-repeat; background-size: 100% 100%; background-attachment: fixed;">
+	<div class="col-lg-12 back">
+		<div class="container">
+			<div class="col-lg-5 col-lg-offset-3 top">
+				<div class="col-lg-12 heading">
+					<h3><b>Enter the Details of the Patient</b></h3>
+				</div>
+				<form class="form fform" action="http://127.0.0.1:5000/prediction" method="post">
+
+					<div class="form-group">
+						<input type="number" name="age" placeholder="Enter Age "  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="sex" placeholder="Enter Sex ( 1 or 0) "  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="cp" placeholder="Enter Chest Pain Type ( 0 - 3) "  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="trestbps" placeholder="Enter Resting Blood Pressure (94-200) "  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="chol" placeholder="Enter Serum Cholestrol (mg/dl) "  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="fbs" placeholder="Enter Fasting Blood Sugar > 120mg/dl (0-1)"  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="restecg" placeholder="Resting Electrocardiographic Results (0,1,2)"  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="thalach" placeholder="Enter Maximum Heart Rate Achieved (71 - 202)"  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="exang" placeholder="Exercise Induced Angina (1 or 0) "  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="oldpeak" placeholder="Depression induced by exercise rel to rest (0-2)"  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="slope" placeholder="Slope of the peak exercise ST segment (0-2)"  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="ca" placeholder="No. of major vessels (0-3) colored by flourosopy"  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="number" name="thal" placeholder="Thal:(0=nrml) (1=fxdDfct) (2=reversabldfct)"  class="form-control" height="200">
+					</div>
+
+					<div class="form-group">
+						<input type="submit" name="submit" value="Submit" class="btn btn-md">
+					</div>
+
+					<div class="form-group">
+						<b>Heart Attack Status: </b> {{ prediction_output }}
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
